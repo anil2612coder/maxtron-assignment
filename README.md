@@ -7,6 +7,8 @@ you need to clone this repository.
 
 there are two folder backend and fronend.
 
+one best feature is dark and light mode
+
 I created this backend using node.js, express.js, jsonwebtoken, mongodb atlas, mongoose, bcrypt, cors and more
 create .env file in root of backend and add MONGODB_URI ,
 JWT_SECRET ,
