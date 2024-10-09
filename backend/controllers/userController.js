@@ -39,7 +39,6 @@ export const updateUser = async (req, res) => {
   
     try {
       const updateData = { name, email, role };
-  
       if (password) {
         updateData.password = await bcrypt.hash(password, 10); // Hash the password if provided
       }

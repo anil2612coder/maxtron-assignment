@@ -20,7 +20,7 @@ const AdminChangeUser = () => {
     const fetchUserDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/users/${userId}`,
+          `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -42,7 +42,7 @@ const AdminChangeUser = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/users/${userId}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/users/${userId}`,
         {
           name,
           email,
@@ -87,7 +87,6 @@ const AdminChangeUser = () => {
           Update Profile
         </h2>
 
-        {/* Name Input */}
         <div className="mb-4">
           <label
             htmlFor="name"
@@ -117,7 +116,6 @@ const AdminChangeUser = () => {
           </div>
         </div>
 
-        {/* Email Input */}
         <div className="mb-4">
           <label
             htmlFor="email"
@@ -147,7 +145,6 @@ const AdminChangeUser = () => {
           </div>
         </div>
 
-        {/* Password Input */}
         <div className="mb-4">
           <label
             htmlFor="password"
@@ -176,7 +173,6 @@ const AdminChangeUser = () => {
           </div>
         </div>
 
-        {/* Role Selector */}
         <div className="mb-4">
           <label
             htmlFor="role"

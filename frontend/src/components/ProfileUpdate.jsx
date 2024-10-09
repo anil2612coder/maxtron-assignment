@@ -27,7 +27,7 @@ const ProfileUpdate = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        "http://localhost:5000/api/users/update-profile",
+        `${import.meta.env.VITE_API_BASE_URL}/api/users/update-profile`,
         {
           name,
           email,
