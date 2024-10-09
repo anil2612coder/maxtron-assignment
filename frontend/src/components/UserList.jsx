@@ -244,7 +244,7 @@ const UserList = () => {
               <th className="hidden md:table-cell px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Email
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+              <th className="hidden sm:table-cell px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Role
               </th>
               <th className="px-6 py-3 text-right text-xs font-medium text-white uppercase tracking-wider">
@@ -260,13 +260,13 @@ const UserList = () => {
             {filteredUsers.length > 0 ? (
               filteredUsers.map((user) => (
                 <tr key={user._id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 ">
                     {user.name}
                   </td>
-                  <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
+                  <td className="hidden md:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-700 ">
                     {user.email}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">
+                  <td className=" hidden sm:table-cell px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                     {user.role}
                   </td>
 
