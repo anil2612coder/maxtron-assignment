@@ -25,3 +25,6 @@ in this website there you can create account with admin or simple user ,
 if you simple user then you can edit your own profile , login , sign , logout, see how your profile looks, dashboard page looks,
 
 or if you are admin then you can signin , signout, register new user , see your profile page , edit your own profile ,also can see all the user ( admin + simple user) , all the statics (how many are they admin or user) , can also delete any user, also can update any person profile, there are one more feather you can filter by admin dashboard user by admin or sinple user .
+
+
+you can also change or role user to admin or admin to user
