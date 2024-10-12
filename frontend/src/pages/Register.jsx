@@ -12,10 +12,13 @@ const Register = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
   const { darkMode } = useTheme();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await register(name, email, password, role);
+    setLoading(false);
     navigate("/login");
   };
 
@@ -29,7 +32,7 @@ const Register = () => {
     >
       <form
         onSubmit={handleSubmit}
-        className={`p-4 rounded-lg shadow-lg w-full max-w-sm ${
+        className={`p-4 rounded-lg -mt-32 md:mt-0 shadow-lg w-full max-w-sm ${
           darkMode ? "bg-gray-900" : "bg-white"
         }`}
       >
@@ -154,9 +157,12 @@ const Register = () => {
 
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+          disabled={loading}
+          className={`w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-lg ${
+            loading ? "cursor-not-allowed opacity-50" : "hover:bg-blue-600"
+          } transition duration-300`}
         >
-          Register
+          {loading ? "Please Wait..." : "Register"}
         </button>
       </form>
     </div>
