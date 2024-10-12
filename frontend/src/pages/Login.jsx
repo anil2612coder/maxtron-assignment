@@ -8,12 +8,14 @@ import { useTheme } from "../context/ThemeContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
   const { darkMode } = useTheme();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const isLoggedIn = await login(email, password);
       if (isLoggedIn) {
@@ -21,6 +23,8 @@ const Login = () => {
       }
     } catch (error) {
       toast.error("Login failed.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -34,7 +38,7 @@ const Login = () => {
     >
       <form
         onSubmit={handleSubmit}
-        className={`p-8 rounded-lg shadow-lg w-full max-w-sm ${
+        className={`p-8 rounded-lg -mt-32 md:mt-0 shadow-lg w-full max-w-sm ${
           darkMode ? "bg-gray-900" : "bg-white"
         }`}
       >
@@ -103,9 +107,12 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300"
+          disabled={isLoading}
+          className={`w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2 rounded-lg ${
+            isLoading ? "cursor-not-allowed opacity-50" : "hover:bg-blue-600"
+          } transition duration-300`}
         >
-          Login
+          {isLoading ? "Please Wait..." : "Login"}
         </button>
         <p
           className={`mt-4 text-center ${
